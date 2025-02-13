@@ -1,4 +1,4 @@
-[debug] [project-build] Classpath dependencies List()
-[debug] [project-build] Dependencies from configurations List()
-[debug] Bloop wrote the configuration of project 'project-build' to '/home/kerel/Documents/unibo/Scalable Cloud Programming/project-git/project-scalable/project/project/.bloop/project-build.json'
-[success] Generated .bloop/project-build.json
+[0m[[0m[0mdebug[0m] [0m[0m[scp-project-co-purchase-analysis-build] Classpath dependencies List()[0m
+[0m[[0m[0mdebug[0m] [0m[0m[scp-project-co-purchase-analysis-build] Dependencies from configurations List()[0m
+[0m[[0m[0mdebug[0m] [0m[0mBloop wrote the configuration of project 'scp-project-co-purchase-analysis-build' to '/home/kerel/Documents/unibo/Scalable Cloud Programming/git/scp-project-co-purchase-analysis/project/.bloop/scp-project-co-purchase-analysis-build.json'[0m
+[0m[[0m[32msuccess[0m] [0m[0mGenerated .bloop/scp-project-co-purchase-analysis-build.json[0m
