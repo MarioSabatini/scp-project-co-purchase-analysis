@@ -47,5 +47,5 @@ gcloud dataproc jobs submit spark \
   --properties=spark.executor.instances=<numExecutors>,spark.executor.memory=6g, spark.executor.cores=3, spark.driver.memory=4g \
   --jar=<jarPath> \
   -- <PathOfBucket>
-    ```
+```
 Alla fine dell'esecuzione verrà creata una cartella nel bucket, specificato durante il submit del job, chiamata "results" dove dentro sarà presente un file chiamato "part-00000". Per visualizzare il file in csv si può scaricare il file e rinominarlo "part-00000.csv".
