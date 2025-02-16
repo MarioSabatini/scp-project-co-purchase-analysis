@@ -27,7 +27,7 @@ object CoPurchaseAnalysis {
     val filePath = args(0) + "order_products.csv"
 
     // Tempo di esecuzione
-    val startTime = System.currentTimeMillis()
+    val startTime = System.nanoTime()
 
     val rdd = sc.textFile(filePath)
     .map(line => line.split(","))
@@ -48,18 +48,18 @@ object CoPurchaseAnalysis {
     }
     
     val coPurchasesPart =
-     coPurchases .partitionBy(new HashPartitioner(partitions))
+    coPurchases .partitionBy(new HashPartitioner(partitions))
    
     // Riduciamo per sommare i conteggi delle coppie
     val result = coPurchasesPart
       .reduceByKey(_ + _)
-      .map { case ((p1, p2), count) => (p1, p2, count) }
+      .map { case ((p1, p2), count) => s"$p1,$p2,$count" }
     // Riduciamo ad una sola partizione e salviamo il file
     val singleResult = result.repartition(1)
     singleResult.saveAsTextFile(outputDirectory)
    
-    val endTime = System.currentTimeMillis()
-    val executionTime = endTime - startTime
+    val endTime = System.nanoTime()
+    val executionTime = (endTime - startTime) / 1000000 // Converti in millisecondi
     // Stampiamo il tempo di esecuzione
     println(s"Tempo di esecuzione: ${executionTime} ms")
     spark.stop()

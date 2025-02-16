@@ -6,7 +6,7 @@ Questo repository contiene il codice per l'analisi di co-acquisto di prodotti ut
 
 Si deve generare un bucket su GoogleCloud e si deve caricare il file cvs fornito nelle specifiche del progetto chiamato "order_products.csv", si deve poi caricare anche il jar presente nel repository che si trova nel path:
 ```bash
-target/scala-2.12/co-purchase_analysis_2.12.jar
+target/scala-2.12/co-purchase_analysis_2.12-0.1.jar
 ```
 
 ## Creazione di un Cluster DataProc
