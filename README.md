@@ -2,7 +2,7 @@
 
 Questo repository contiene il codice per l'analisi di co-acquisto di prodotti utilizzando Scala e Apache Spark su Google Cloud DataProc. Di seguito sono riportate le istruzioni per eseeguire il programma e replicare gli esperimenti fatti.
 
-## Genrazione del bucket e caricamento dei file necesari
+## Generazione del bucket e caricamento dei file necesari
 
 Si deve generare un bucket su GoogleCloud e si deve caricare il file cvs fornito nelle specifiche del progetto chiamato "order_products.csv", si deve poi caricare anche il jar presente nel repository che si trova nel path:
 ```bash
@@ -48,4 +48,5 @@ gcloud dataproc jobs submit spark \
   --jar=<jarPath> \
   -- <PathOfBucket>
 ```
+Quando si passa il path del bucket ci si assicuri di aggiundere uno "/" alla fine (ex: gs://scp-project/).
 Alla fine dell'esecuzione verrà creata una cartella nel bucket, specificato durante il submit del job, chiamata "results" dove dentro sarà presente un file chiamato "part-00000". Per visualizzare il file in csv si può scaricare il file e rinominarlo "part-00000.csv".
