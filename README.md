@@ -28,13 +28,10 @@ Per creare un cluster DataProc con n nodi, utilizzare il seguente comando:
 gcloud dataproc clusters create <cluster-name> \
     --region <region> \
     --zone <zone>\
-    --master-machine-type <machine>\
-     --num-workers <n> \ 
-     --worker-machine-type <worker-machine> \ 
-     --worker-boot-disk-size <gb> \
-    --master-boot-disk-size <gb> \
+    --master-machine-type <machine> --master-boot-disk-size 100g \
+    --num-workers <n> --worker-machine-type <worker-machine> --worker-boot-disk-size <gb> \
     --image-version 2.2-debian12 \
-    --project <project-name> \
+    --project <project-name>
    ```
    
 ## Submit del Job
@@ -44,9 +41,9 @@ Per eseguire il submit di un job sul cluster utilizzare il seguente comando:
 gcloud dataproc jobs submit spark \
   --cluster=<cluster_name> \
   --region=<region> \
-  --properties=spark.executor.instances=<numExecutors>,spark.executor.memory=6g, spark.executor.cores=3, spark.driver.memory=4g \
+  --properties=spark.executor.instances=<numExecutors>,spark.executor.memory=6g,spark.executor.cores=3,spark.driver.memory=4g \
   --jar=<jarPath> \
   -- <PathOfBucket>
 ```
-Quando si passa il path del bucket ci si assicuri di aggiundere uno "/" alla fine (ex: gs://scp-project/).
+Quando si passa il path del bucket ci si assicuri di aggiundere uno "/" alla fine (ex: gs://scp-project/). \
 Alla fine dell'esecuzione verrà creata una cartella nel bucket, specificato durante il submit del job, chiamata "results" dove dentro sarà presente un file chiamato "part-00000". Per visualizzare il file in csv si può scaricare il file e rinominarlo "part-00000.csv".
