@@ -8,7 +8,6 @@ Si deve generare un bucket su GoogleCloud e si deve caricare il file cvs fornito
 ```bash
 target/scala-2.12/co-purchase_analysis_2.12-0.1.jar
 ```
-
 ## Creazione di un Cluster DataProc
 
 Per creare un cluster DataProc con un solo worker, utilizzare il seguente comando:
@@ -42,8 +41,7 @@ gcloud dataproc jobs submit spark \
   --cluster=<cluster_name> \
   --region=<region> \
   --properties=spark.executor.instances=<numExecutors>,spark.executor.memory=6g,spark.executor.cores=3,spark.driver.memory=4g \
-  --jar=<jarPath> \
-  -- <PathOfBucket>
+  --jar=<PathOfBucket>/<jarName> \
+  -- <PathOfBucket>/
 ```
-Quando si passa il path del bucket ci si assicuri di aggiundere uno "/" alla fine (ex: gs://scp-project/). \
 Alla fine dell'esecuzione verrà creata una cartella nel bucket, specificato durante il submit del job, chiamata "results" dove dentro sarà presente un file chiamato "part-00000". Per visualizzare il file in csv si può scaricare il file e rinominarlo "part-00000.csv".
